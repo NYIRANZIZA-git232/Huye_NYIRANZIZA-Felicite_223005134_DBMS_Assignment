@@ -1,0 +1,275 @@
+mysql> CREATE DATABASE RUHANDE;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> USE RUHANDE
+Database changed
+mysql> CREATE TABLE NGOMA(
+    -> ID  INT,
+    -> FIRST NAME VARCHAR(15),
+    -> LAT NAME VARCHAR(25),
+    -> GENDER VARCHAR(10),
+    -> PROVINCE  VARCHAR(15),
+    -> DISTRICT VARCHAR(6),
+    -> SECTOR VARCHAR(5),
+    -> CELL VARCHAR(7),
+    -> EMAIL  VARCHAR(35),
+    -> TEL INT,
+    -> PRIMARY KEY(ID)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NAME VARCHAR(15),
+LAT NAME VARCHAR(25),
+GENDER VARCHAR(10),
+PROVINCE  VARCHAR(15' at line 3
+mysql> CREATE TABLE NGOMA(
+    ->  ID  INT,
+    ->  FIRSTNAME VARCHAR(15),
+    -> LAT NAMEVARCHAR(25),
+    ->  GENDER VARCHAR(10);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NAMEVARCHAR(25),
+ GENDER VARCHAR(10)' at line 4
+mysql> CREATE TABLE NGOMA(
+    -> ID INT,
+    -> FNAME VARCHAR(15),
+    -> LNAME(25),
+    -> GENDER  VARCHAR(10),
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(25),
+GENDER  VARCHAR(10),
+)' at line 4
+mysql> CREATE TABLE NGOMA(
+    -> ID INT,
+    -> FNMAME  VARCHAR(15),
+    -> LNAME  VARCHAR(25),
+    -> GENDER  VARCHAR(10),
+    -> PROVINCE  VARCHAR(15),
+    -> DISTRICT  VARCHAR(15),
+    -> SECTOR VARCHAR(10),
+    -> CELL  VARCHAR(6),
+    -> EMAIL  VARCHAR(35),
+    -> TELEPHONE  INT(10),
+    -> PRIMARY KEY (ID)
+    -> );
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+mysql> INSERT INTO NGOMA VALUES(001,"Rebecca","TUYIKUNDE","FEMALE","WESTERN","RUBAVU","MUGUNGA","GASIZA","rebeccatuyi20@gmail.com",0780923412);
+Query OK, 1 row affected (0.02 sec)
+
+mysql>  INSERT INTO NGOMA VALUES(002,"Rodrigue","MUSONI","MALE","WESTERN","RUBAVU","MUYIRA","GASIZA","rodrigue1230@gmail.com",0798492032);
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  INSERT INTO NGOMA VALUES(003,"Claude","KWIZERA","MALE","SOUTHERN","GISAGARA","KARIMA","GISAGAZA","claude230@gmail.com",072555450);
+Query OK, 1 row affected, 1 warning (0.02 sec)
+
+mysql>  INSERT INTO NGOMA VALUES(003,"Vianney","MUZEHE","MALE","SOUTHERN","NYARUGURU","NYARUKERI","KIYONZA","muzehe2@gmail.com",0782200623);
+ERROR 1062 (23000): Duplicate entry '3' for key 'ngoma.PRIMARY'
+mysql> INSERT INTO NGOMA VALUES(004,"Vianney","MUZEHE","MALE","SOUTHERN","NYARUGURU","NYARUKERI","KIYONZA","muzehe2@gmail.com",0782200623);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql>  INSERT INTO NGOMA VALUES(005,"Sousan","MUREKATETE","FEMALE","SOUTHERN","NYARUGURU","NYARUKERI","KIYONZA","sousan@gmail.com",0789099325);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql>  INSERT INTO NGOMA VALUES(006,"Felicite","NZIZA","FEMALE","SOUTHERN","HUYE","NGOMA","KIBANGU","nziza@gmail.com",0780883345);
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES(007,"Elyse","NIYONKURU","MALE","NORTHERN","GICUMBI","KAGEYO","KANIGA","elyse@gmail.com",0787245555);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES(007,"Anitha","NIYIGENA","FEMALE","EASTERN","KAYONZA","KARUGINA","KAKIRU","anithaniyo@gmail.com",0787968412);
+ERROR 1062 (23000): Duplicate entry '7' for key 'ngoma.PRIMARY'
+mysql>  INSERT INTO NGOMA VALUES(008,"Anitha","NIYIGENA","FEMALE","EASTERN","KAYONZA","KARUGINA","KAKIRU","anithaniyo@gmail.com",0787968412);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES(009,"Caline","MURERWA","FEMALE","NORTHERN","RULINDO","KANGAZI","MUKINGO","calineb08@gmail.com",07917288671);
+Query OK, 1 row affected, 2 warnings (0.01 sec)
+
+mysql>  INSERT INTO NGOMA VALUES(0010,"Florence","NIYONSHUTI","FEMALE","EASTERN","NYANZA","RUKOMO","KITABI","niyoflorence@gmail.com",0781016009);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT* FROM NGOMA;
++----+----------+------------+--------+----------+-----------+-----------+--------+-------------------------+------------+
+| ID | FNMAME   | LNAME      | GENDER | PROVINCE | DISTRICT  | SECTOR    | CELL   | EMAIL                   | TELEPHONE  |
++----+----------+------------+--------+----------+-----------+-----------+--------+-------------------------+------------+
+|  1 | Rebecca  | TUYIKUNDE  | FEMALE | WESTERN  | RUBAVU    | MUGUNGA   | GASIZA | rebeccatuyi20@gmail.com |  780923412 |
+|  2 | Rodrigue | MUSONI     | MALE   | WESTERN  | RUBAVU    | MUYIRA    | GASIZA | rodrigue1230@gmail.com  |  798492032 |
+|  3 | Claude   | KWIZERA    | MALE   | SOUTHERN | GISAGARA  | KARIMA    | GISAGA | claude230@gmail.com     |   72555450 |
+|  4 | Vianney  | MUZEHE     | MALE   | SOUTHERN | NYARUGURU | NYARUKERI | KIYONZ | muzehe2@gmail.com       |  782200623 |
+|  5 | Sousan   | MUREKATETE | FEMALE | SOUTHERN | NYARUGURU | NYARUKERI | KIYONZ | sousan@gmail.com        |  789099325 |
+|  6 | Felicite | NZIZA      | FEMALE | SOUTHERN | HUYE      | NGOMA     | KIBANG | nziza@gmail.com         |  780883345 |
+|  7 | Elyse    | NIYONKURU  | MALE   | NORTHERN | GICUMBI   | KAGEYO    | KANIGA | elyse@gmail.com         |  787245555 |
+|  8 | Anitha   | NIYIGENA   | FEMALE | EASTERN  | KAYONZA   | KARUGINA  | KAKIRU | anithaniyo@gmail.com    |  787968412 |
+|  9 | Caline   | MURERWA    | FEMALE | NORTHERN | RULINDO   | KANGAZI   | MUKING | calineb08@gmail.com     | 2147483647 |
+| 10 | Florence | NIYONSHUTI | FEMALE | EASTERN  | NYANZA    | RUKOMO    | KITABI | niyoflorence@gmail.com  |  781016009 |
++----+----------+------------+--------+----------+-----------+-----------+--------+-------------------------+------------+
+10 rows in set (0.00 sec)
+
+mysql> ALTER TABLE NGOMA ADD AGE INT;
+Query OK, 10 rows affected (0.07 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM NGOMA;
++----+----------+------------+--------+----------+-----------+-----------+--------+-------------------------+------------+------+
+| ID | FNMAME   | LNAME      | GENDER | PROVINCE | DISTRICT  | SECTOR    | CELL   | EMAIL                   | TELEPHONE  | AGE  |
++----+----------+------------+--------+----------+-----------+-----------+--------+-------------------------+------------+------+
+|  1 | Rebecca  | TUYIKUNDE  | FEMALE | WESTERN  | RUBAVU    | MUGUNGA   | GASIZA | rebeccatuyi20@gmail.com |  780923412 | NULL |
+|  2 | Rodrigue | MUSONI     | MALE   | WESTERN  | RUBAVU    | MUYIRA    | GASIZA | rodrigue1230@gmail.com  |  798492032 | NULL |
+|  3 | Claude   | KWIZERA    | MALE   | SOUTHERN | GISAGARA  | KARIMA    | GISAGA | claude230@gmail.com     |   72555450 | NULL |
+|  4 | Vianney  | MUZEHE     | MALE   | SOUTHERN | NYARUGURU | NYARUKERI | KIYONZ | muzehe2@gmail.com       |  782200623 | NULL |
+|  5 | Sousan   | MUREKATETE | FEMALE | SOUTHERN | NYARUGURU | NYARUKERI | KIYONZ | sousan@gmail.com        |  789099325 | NULL |
+|  6 | Felicite | NZIZA      | FEMALE | SOUTHERN | HUYE      | NGOMA     | KIBANG | nziza@gmail.com         |  780883345 | NULL |
+|  7 | Elyse    | NIYONKURU  | MALE   | NORTHERN | GICUMBI   | KAGEYO    | KANIGA | elyse@gmail.com         |  787245555 | NULL |
+|  8 | Anitha   | NIYIGENA   | FEMALE | EASTERN  | KAYONZA   | KARUGINA  | KAKIRU | anithaniyo@gmail.com    |  787968412 | NULL |
+|  9 | Caline   | MURERWA    | FEMALE | NORTHERN | RULINDO   | KANGAZI   | MUKING | calineb08@gmail.com     | 2147483647 | NULL |
+| 10 | Florence | NIYONSHUTI | FEMALE | EASTERN  | NYANZA    | RUKOMO    | KITABI | niyoflorence@gmail.com  |  781016009 | NULL |
++----+----------+------------+--------+----------+-----------+-----------+--------+-------------------------+------------+------+
+10 rows in set (0.00 sec)
+
+mysql> ALTER TABLE NGOMA DROP AGE INT;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INT' at line 1
+mysql> UPDATE NGOMA SET AGE=20 WHERE NAME=Rebecca;
+ERROR 1054 (42S22): Unknown column 'NAME' in 'where clause'
+mysql> UPDATE NGOMA SET AGE='20' WHERE ID='1';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT *FROM NGOMA;
++----+----------+------------+--------+----------+-----------+-----------+--------+-------------------------+------------+------+
+| ID | FNMAME   | LNAME      | GENDER | PROVINCE | DISTRICT  | SECTOR    | CELL   | EMAIL                   | TELEPHONE  | AGE  |
++----+----------+------------+--------+----------+-----------+-----------+--------+-------------------------+------------+------+
+|  1 | Rebecca  | TUYIKUNDE  | FEMALE | WESTERN  | RUBAVU    | MUGUNGA   | GASIZA | rebeccatuyi20@gmail.com |  780923412 |   20 |
+|  2 | Rodrigue | MUSONI     | MALE   | WESTERN  | RUBAVU    | MUYIRA    | GASIZA | rodrigue1230@gmail.com  |  798492032 | NULL |
+|  3 | Claude   | KWIZERA    | MALE   | SOUTHERN | GISAGARA  | KARIMA    | GISAGA | claude230@gmail.com     |   72555450 | NULL |
+|  4 | Vianney  | MUZEHE     | MALE   | SOUTHERN | NYARUGURU | NYARUKERI | KIYONZ | muzehe2@gmail.com       |  782200623 | NULL |
+|  5 | Sousan   | MUREKATETE | FEMALE | SOUTHERN | NYARUGURU | NYARUKERI | KIYONZ | sousan@gmail.com        |  789099325 | NULL |
+|  6 | Felicite | NZIZA      | FEMALE | SOUTHERN | HUYE      | NGOMA     | KIBANG | nziza@gmail.com         |  780883345 | NULL |
+|  7 | Elyse    | NIYONKURU  | MALE   | NORTHERN | GICUMBI   | KAGEYO    | KANIGA | elyse@gmail.com         |  787245555 | NULL |
+|  8 | Anitha   | NIYIGENA   | FEMALE | EASTERN  | KAYONZA   | KARUGINA  | KAKIRU | anithaniyo@gmail.com    |  787968412 | NULL |
+|  9 | Caline   | MURERWA    | FEMALE | NORTHERN | RULINDO   | KANGAZI   | MUKING | calineb08@gmail.com     | 2147483647 | NULL |
+| 10 | Florence | NIYONSHUTI | FEMALE | EASTERN  | NYANZA    | RUKOMO    | KITABI | niyoflorence@gmail.com  |  781016009 | NULL |
++----+----------+------------+--------+----------+-----------+-----------+--------+-------------------------+------------+------+
+10 rows in set (0.00 sec)
+
+mysql> ALTER TABLE NGOMA DROP AGE;
+Query OK, 10 rows affected (0.05 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM NGOMA;
++----+----------+------------+--------+----------+-----------+-----------+--------+-------------------------+------------+
+| ID | FNMAME   | LNAME      | GENDER | PROVINCE | DISTRICT  | SECTOR    | CELL   | EMAIL                   | TELEPHONE  |
++----+----------+------------+--------+----------+-----------+-----------+--------+-------------------------+------------+
+|  1 | Rebecca  | TUYIKUNDE  | FEMALE | WESTERN  | RUBAVU    | MUGUNGA   | GASIZA | rebeccatuyi20@gmail.com |  780923412 |
+|  2 | Rodrigue | MUSONI     | MALE   | WESTERN  | RUBAVU    | MUYIRA    | GASIZA | rodrigue1230@gmail.com  |  798492032 |
+|  3 | Claude   | KWIZERA    | MALE   | SOUTHERN | GISAGARA  | KARIMA    | GISAGA | claude230@gmail.com     |   72555450 |
+|  4 | Vianney  | MUZEHE     | MALE   | SOUTHERN | NYARUGURU | NYARUKERI | KIYONZ | muzehe2@gmail.com       |  782200623 |
+|  5 | Sousan   | MUREKATETE | FEMALE | SOUTHERN | NYARUGURU | NYARUKERI | KIYONZ | sousan@gmail.com        |  789099325 |
+|  6 | Felicite | NZIZA      | FEMALE | SOUTHERN | HUYE      | NGOMA     | KIBANG | nziza@gmail.com         |  780883345 |
+|  7 | Elyse    | NIYONKURU  | MALE   | NORTHERN | GICUMBI   | KAGEYO    | KANIGA | elyse@gmail.com         |  787245555 |
+|  8 | Anitha   | NIYIGENA   | FEMALE | EASTERN  | KAYONZA   | KARUGINA  | KAKIRU | anithaniyo@gmail.com    |  787968412 |
+|  9 | Caline   | MURERWA    | FEMALE | NORTHERN | RULINDO   | KANGAZI   | MUKING | calineb08@gmail.com     | 2147483647 |
+| 10 | Florence | NIYONSHUTI | FEMALE | EASTERN  | NYANZA    | RUKOMO    | KITABI | niyoflorence@gmail.com  |  781016009 |
++----+----------+------------+--------+----------+-----------+-----------+--------+-------------------------+------------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT *FROM NGOMA  WHERE  GENDER= 'MALE' AND SECTOR='KAGEYO';
++----+--------+-----------+--------+----------+----------+--------+--------+-----------------+-----------+
+| ID | FNMAME | LNAME     | GENDER | PROVINCE | DISTRICT | SECTOR | CELL   | EMAIL           | TELEPHONE |
++----+--------+-----------+--------+----------+----------+--------+--------+-----------------+-----------+
+|  7 | Elyse  | NIYONKURU | MALE   | NORTHERN | GICUMBI  | KAGEYO | KANIGA | elyse@gmail.com | 787245555 |
++----+--------+-----------+--------+----------+----------+--------+--------+-----------------+-----------+
+1 row in set (0.02 sec)
+
+mysql> SELECT *FROM NGOMA WHERE  PROVINCE='SOUTHERN' OR CELL= 'KITABI';
++----+----------+------------+--------+----------+-----------+-----------+--------+------------------------+-----------+
+| ID | FNMAME   | LNAME      | GENDER | PROVINCE | DISTRICT  | SECTOR    | CELL   | EMAIL                  | TELEPHONE |
++----+----------+------------+--------+----------+-----------+-----------+--------+------------------------+-----------+
+|  3 | Claude   | KWIZERA    | MALE   | SOUTHERN | GISAGARA  | KARIMA    | GISAGA | claude230@gmail.com    |  72555450 |
+|  4 | Vianney  | MUZEHE     | MALE   | SOUTHERN | NYARUGURU | NYARUKERI | KIYONZ | muzehe2@gmail.com      | 782200623 |
+|  5 | Sousan   | MUREKATETE | FEMALE | SOUTHERN | NYARUGURU | NYARUKERI | KIYONZ | sousan@gmail.com       | 789099325 |
+|  6 | Felicite | NZIZA      | FEMALE | SOUTHERN | HUYE      | NGOMA     | KIBANG | nziza@gmail.com        | 780883345 |
+| 10 | Florence | NIYONSHUTI | FEMALE | EASTERN  | NYANZA    | RUKOMO    | KITABI | niyoflorence@gmail.com | 781016009 |
++----+----------+------------+--------+----------+-----------+-----------+--------+------------------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql>
+
+mysql> SELECT 'ID','FNMAME','LNAME','GENDER', 'PROVINCE', 'DISTRICT','SECTOR' FROM NGOMA;
++----+--------+-------+--------+----------+----------+--------+
+| ID | FNMAME | LNAME | GENDER | PROVINCE | DISTRICT | SECTOR |
++----+--------+-------+--------+----------+----------+--------+
+| ID | FNMAME | LNAME | GENDER | PROVINCE | DISTRICT | SECTOR |
+| ID | FNMAME | LNAME | GENDER | PROVINCE | DISTRICT | SECTOR |
+| ID | FNMAME | LNAME | GENDER | PROVINCE | DISTRICT | SECTOR |
+| ID | FNMAME | LNAME | GENDER | PROVINCE | DISTRICT | SECTOR |
+| ID | FNMAME | LNAME | GENDER | PROVINCE | DISTRICT | SECTOR |
+| ID | FNMAME | LNAME | GENDER | PROVINCE | DISTRICT | SECTOR |
+| ID | FNMAME | LNAME | GENDER | PROVINCE | DISTRICT | SECTOR |
+| ID | FNMAME | LNAME | GENDER | PROVINCE | DISTRICT | SECTOR |
+| ID | FNMAME | LNAME | GENDER | PROVINCE | DISTRICT | SECTOR |
+| ID | FNMAME | LNAME | GENDER | PROVINCE | DISTRICT | SECTOR |
++----+--------+-------+--------+----------+----------+--------+
+10 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
